@@ -1,0 +1,27 @@
+main {
+    background-image: url("../../../assets/img/homeFondo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    height: 80vh;
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+    padding: 2% 10%;
+}
+
+div h1 {
+    font-family: var(--FontFamily-Titulo);
+    font-size: var(--FontSize-TituloPrincipal);
+    color: white;
+}
+
+div p {
+    font-family: var(--FontFamily-Titulo);
+    font-size: var(--FontSize-TituloSegundo);
+    color: white;
+}

@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    --bk-Principal: #444444;
+    --bk-Secundario: #a4c2ff;
+    --bk-btn: #8a5e00;
+    --color-Enlaces: #ffb300;
+    --FontFamily-Titulo: Poppins, "Arial Black", Gadget, sans-serif;
+    --FontSize-TituloPrincipal: 50px;
+    --FontSize-TituloSegundo: 30px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    text-decoration: none;
+}

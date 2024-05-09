@@ -1,0 +1,21 @@
+header {
+    background-color: var(--bk-Principal);
+    color: var(--color-Enlaces);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+}
+
+    header p {
+        font-size: var(--FontSize-TituloSegundo);
+    }
+
+    header div {
+        display: flex;
+        gap: 20px;
+    }
+
+        header div a {
+            color: var(--color-Enlaces);
+        }
