@@ -1,0 +1,183 @@
+section {
+    /* border: 10px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 735px;
+    gap: 5px;
+    background-image: url("../../../assets/img/homeFondo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 48px;
+}
+
+    .perfil {
+        border: 2px solid rgb(143, 143, 143);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-right: 0;
+        background-color: rgb(97, 97, 97);
+        opacity: 0.7;
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 20px 0;
+    }
+
+        .perfil img {
+            width: 270px;
+            height: 270px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .perfil h2 {
+            display: flex;
+            font-size: var(--FontSize-TituloSegundo);
+            color: var(--color-Enlaces);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .perfilDatos {
+            /* border: 2px solid rgb(30, 255, 0); */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-right: 30px;
+        }
+
+            .perfilDatos div {
+                /* border: 2px solid rgb(255, 5, 34); */
+                display: flex;
+            }
+
+            .perfilDatos h3 {
+                font-size: 25px;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30%;
+            }
+
+            .perfilDatos p {
+                border: 2px solid rgb(143, 143, 143);
+                border-radius: 5px;
+                width: 70%;
+                padding: 20px 100px;
+                text-align: center;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+
+    .modificar {
+        border: 2px solid rgb(143, 143, 143);
+        background-color: rgb(97, 97, 97);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+        border-left: 0;
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        opacity: 0.7;
+        padding: 36px 0;
+    }
+
+        .modificar h2 {
+            font-size: var(--FontSize-TituloPrincipal);
+            padding: 10px 40px;
+            border-bottom: 10px solid var(--bk-btn);
+            color: white;
+            display: flex;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+            form input {
+                padding: 20px 30px;
+                border: 2px solid rgb(143, 143, 143);
+                border-radius: 5px;
+                background-color: inherit;
+                color: white;
+                text-align: center;
+            }
+
+                input::placeholder {
+                    color: white;
+                    text-align: center;
+                }
+
+            button {
+                margin-top: 30px;
+                border: 0;
+                border-radius: 5px;
+                margin-left: auto;
+                margin-right: auto;
+                padding: 5px 10px;
+                background-color: var(--bk-btn);
+                color: var(--color-Enlaces);
+            }
+
+
+
+
+@media screen and (max-width: 1680px) {
+    
+    .perfilDatos div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .perfilDatos {
+        padding-right: 0;
+    }
+
+    .modificar {
+        height: 83.3vh;
+    }
+
+    section {
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    
+    form input {
+        padding: 20px 0px;
+    }
+
+    .perfilDatos p {
+        padding: 20px 75px;
+
+    }
+
+    .perfil img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .perfil {
+        height: 83.3vh;
+    }
+}
