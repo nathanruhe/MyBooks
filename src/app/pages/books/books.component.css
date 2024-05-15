@@ -1,0 +1,121 @@
+section {
+    /* border: 10px solid green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+    .libros {
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px rgb(99, 99, 99);
+        height: 500px;
+        width: 300px;
+    }
+    
+        .imagen {
+            height: 50%;
+        }
+
+            img {
+                display: block;
+                height: 100%;
+                width: 100%;
+            }
+
+        .texto {
+            height: 50%;
+            padding: 0 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+            .tipo {
+                margin: 10px 0;
+                border-bottom: 5px solid var(--bk-btn);
+                padding-bottom: 5px;
+                padding-left: 10px;
+            }
+
+            .texto h5 {
+                text-align: center;
+                font-size: 25px;
+            }
+
+            .precio {
+                display: flex;
+                justify-content: center;
+                font-weight: bold;
+                margin: 10px;
+            }
+
+            .btn1 {
+                display: flex;
+                border: 0;
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: var(--bk-btn);
+                color: var(--color-Enlaces);
+                justify-content: center;
+            }
+
+            .btn2 {
+                display: flex;
+                border: 0;
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: green;
+                color: var(--color-Enlaces);
+                justify-content: center;
+            }
+
+
+/*  FORMULARIO INGRESAR */
+.vacio {
+    height: 155px;
+    display: flex;
+    justify-content: center;
+}
+
+.ingresar {
+    /* border: 10px solid red; */
+    margin: 0 50px;
+    border-top: 10px solid var(--bk-btn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .ingresarForm {
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px rgb(99, 99, 99);
+        height: 370px;
+        width: 500px;
+        padding: 20px 50px;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .ingresarForm h5 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .divForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+            input::placeholder {
+                padding-left: 10px;
+            }
+

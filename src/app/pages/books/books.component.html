@@ -1,0 +1,37 @@
+<section>
+    <ng-container *ngFor="let book of myBooks; let i = index; let even = even">
+        <form class="libros">
+            <div class="imagen">
+                <img src="{{ book.photo }}" alt="">
+            </div>
+            <div class="texto">
+                <p class="tipo">{{ book.type }}</p>
+                <h5>{{ book.title }}</h5>
+                <p>Autor: {{ book.author }}</p>
+                <p>{{ book.id_book | reference }}</p>
+                <p class="precio">{{ book.price }} €</p>
+                <button [ngClass]="{'btn1': even, 'btn2': !even}" type="button" class="btn1">Comprar</button>
+            </div>
+        </form>
+    </ng-container>
+</section>
+
+<div *ngIf="myBooks.length === 0" class="vacio">
+    No hay libros disponibles.
+</div>
+
+<div class="ingresar">
+    <form class="ingresarForm">
+        <h5>Añadir nuevo libro</h5>
+        <div class="divForm">
+            <input type="text" placeholder="Titulo" #titulo>
+            <input type="text" placeholder="Tapa blanda / dura" #tipo>
+            <input type="text" placeholder="Autor" #autor>
+            <input type="number" placeholder="Precio" #precio>
+            <input type="text" placeholder="Foto" #foto>
+            <input type="number" placeholder="Codigo libro" #codigo>
+        </div>
+        <button class="btn1" type="button" (click)="enviar2(titulo.value, tipo.value, autor.value, precio.value, foto.value, codigo.value)">Añadir</button>
+    </form>
+</div>
+
