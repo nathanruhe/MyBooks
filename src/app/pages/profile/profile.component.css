@@ -3,7 +3,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 735px;
+    height: 80vh;
     gap: 5px;
     background-image: url("../../../assets/img/homeFondo.jpg");
     background-size: cover;
@@ -151,7 +151,7 @@ section {
     }
 
     .modificar {
-        height: 83.3vh;
+        height: 91.5vh;
     }
 
     section {
@@ -165,6 +165,10 @@ section {
         padding: 20px 0px;
     }
 
+    .perfil {
+        height: 91.5vh;
+    }
+
     .perfilDatos p {
         padding: 20px 75px;
 
@@ -175,9 +179,5 @@ section {
         height: 200px;
         border-radius: 50%;
         overflow: hidden;
-    }
-
-    .perfil {
-        height: 83.3vh;
     }
 }

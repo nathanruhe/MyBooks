@@ -4,6 +4,7 @@ main {
     background-repeat: no-repeat;
     display: flex;
     height: 80vh;
+    justify-content: center;
 }
 
 div {
