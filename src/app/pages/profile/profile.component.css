@@ -151,7 +151,7 @@ section {
     }
 
     .modificar {
-        height: 91.5vh;
+        height: 82.5vh;
     }
 
     section {
@@ -179,5 +179,47 @@ section {
         height: 200px;
         border-radius: 50%;
         overflow: hidden;
+    }
+
+    .modificar {
+        height: 91.5vh;
+    }
+}
+
+@media screen and (max-width: 954px) {
+
+    .perfil {
+        width: 40%;
+    }
+
+    .modificar {
+        width: 40%;
+    }
+}
+
+@media screen and (max-width: 745px) {
+
+    section {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .perfil {
+        width: 70%;
+    }
+
+    .modificar {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 484px) {
+
+    .perfil {
+        min-width: 270px;
+    }
+
+    .modificar {
+        min-width: 270px;
     }
 }

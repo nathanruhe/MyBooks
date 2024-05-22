@@ -1,18 +1,6 @@
 <section>
-    <ng-container *ngFor="let book of myBooks; let i = index; let even = even">
-        <form class="libros">
-            <div class="imagen">
-                <img src="{{ book.photo }}" alt="">
-            </div>
-            <div class="texto">
-                <p class="tipo">{{ book.type }}</p>
-                <h5>{{ book.title }}</h5>
-                <p>Autor: {{ book.author }}</p>
-                <p>{{ book.id_book | reference }}</p>
-                <p class="precio">{{ book.price }} €</p>
-                <button [ngClass]="{'btn1': even, 'btn2': !even}" type="button" class="btn1">Comprar</button>
-            </div>
-        </form>
+    <ng-container *ngFor="let book of myBooks; let i = index">
+        <app-card [bookPadre]="book" (eliminar)="eliminarLibro(i)" [index]="i"></app-card>
     </ng-container>
 </section>
 

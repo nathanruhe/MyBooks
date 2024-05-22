@@ -23,4 +23,8 @@ export class BooksComponent {
   enviar2(titulo: string, tipo: string, autor: string, precio: number, foto: string, codigo: number) {
     this.myBooks.push(new Book (codigo, undefined, titulo, tipo, autor, precio, foto))
   }
+
+  eliminarLibro(index: number) {
+    this.myBooks.splice(index, 1);
+  }
 }

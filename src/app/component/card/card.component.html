@@ -1,0 +1,14 @@
+<div class="libros">
+    <button class="eliminar" (click)="eliminarCard()">X</button>
+    <div class="imagen">
+        <img src="{{ bookPadre.photo }}" alt="">
+    </div>
+    <div class="texto">
+        <p class="tipo">{{ bookPadre.type }}</p>
+        <h5>{{ bookPadre.title }}</h5>
+        <p>Autor: {{ bookPadre.author }}</p>
+        <p>{{ bookPadre.id_book| reference }}</p>
+        <p class="precio">{{ bookPadre.price }} €</p>
+        <button [ngClass]="{'btn1': even, 'btn2': !even}" type="button">Comprar</button>
+    </div>
+</div>
