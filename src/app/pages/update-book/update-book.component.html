@@ -1,0 +1,14 @@
+<div class="ingresar">
+    <form class="ingresarForm">
+        <h5>Editar libro</h5>
+        <div class="divForm">
+            <input type="text" placeholder="Titulo" #titulo>
+            <input type="text" placeholder="Tapa blanda / dura" #tipo>
+            <input type="text" placeholder="Autor" #autor>
+            <input type="number" placeholder="Precio" #precio>
+            <input type="text" placeholder="Foto" #foto>
+            <input type="number" placeholder="Codigo libro" #codigo>
+        </div>
+        <button class="btn1" type="button" (click)="editarLibro(titulo.value, tipo.value, autor.value, precio.value, foto.value, +codigo.value)">Añadir</button>
+    </form>
+</div>

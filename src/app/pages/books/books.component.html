@@ -1,25 +1,13 @@
-<section>
-    <ng-container *ngFor="let book of myBooks; let i = index">
-        <app-card [bookPadre]="book" (eliminar)="eliminarLibro(i)" [index]="i"></app-card>
-    </ng-container>
-</section>
+<div class="buscar">
+    <input type="text" placeholder="Buscar por ID" #buscar (input)="buscarLibro(+buscar.value)">
+</div>
 
 <div *ngIf="myBooks.length === 0" class="vacio">
     No hay libros disponibles.
 </div>
 
-<div class="ingresar">
-    <form class="ingresarForm">
-        <h5>Añadir nuevo libro</h5>
-        <div class="divForm">
-            <input type="text" placeholder="Titulo" #titulo>
-            <input type="text" placeholder="Tapa blanda / dura" #tipo>
-            <input type="text" placeholder="Autor" #autor>
-            <input type="number" placeholder="Precio" #precio>
-            <input type="text" placeholder="Foto" #foto>
-            <input type="number" placeholder="Codigo libro" #codigo>
-        </div>
-        <button class="btn1" type="button" (click)="enviar2(titulo.value, tipo.value, autor.value, precio.value, foto.value, codigo.value)">Añadir</button>
-    </form>
-</div>
-
+<section>
+    <ng-container *ngFor="let book of myBooks; let i = index">
+        <app-card [bookPadre]="book" (eliminar)="eliminarLibro(i)" [index]="i"></app-card>
+    </ng-container>
+</section>

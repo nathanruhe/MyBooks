@@ -1,0 +1,47 @@
+.ingresar {
+    /* border: 10px solid red; */
+    /* margin: 0 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+    .ingresarForm {
+        border: 1px solid black;
+        border-radius: 5px;
+        box-shadow: 3px 3px 10px rgb(99, 99, 99);
+        height: 370px;
+        width: 500px;
+        padding: 20px 50px;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .ingresarForm h5 {
+            text-align: center;
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .divForm {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+            input::placeholder {
+                padding-left: 10px;
+            }
+
+            .btn1 {
+                display: flex;
+                border: 0;
+                border-radius: 5px;
+                padding: 5px 10px;
+                background-color: var(--bk-btn);
+                color: var(--color-Enlaces);
+                justify-content: center;
+            }
