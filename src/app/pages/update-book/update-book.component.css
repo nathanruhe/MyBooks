@@ -4,14 +4,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    margin: 131.5px;
 }
 
     .ingresarForm {
         border: 1px solid black;
         border-radius: 5px;
         box-shadow: 3px 3px 10px rgb(99, 99, 99);
-        height: 370px;
         width: 500px;
         padding: 20px 50px;
         margin: 50px;
@@ -45,3 +44,19 @@
                 color: var(--color-Enlaces);
                 justify-content: center;
             }
+
+
+/* invalids */
+
+.invalido {
+    border: 1px solid red;
+}
+
+.mensajeInvalido div {
+    color: red;
+    font-size: 15px;
+}
+
+.btn1:disabled {
+    opacity: 0.6;
+}

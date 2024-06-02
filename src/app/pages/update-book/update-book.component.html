@@ -1,14 +1,38 @@
 <div class="ingresar">
-    <form class="ingresarForm">
+    <form class="ingresarForm" #nuevo="ngForm" (ngSubmit)="editarLibro(nuevo)">
         <h5>Editar libro</h5>
         <div class="divForm">
-            <input type="text" placeholder="Titulo" #titulo>
-            <input type="text" placeholder="Tapa blanda / dura" #tipo>
-            <input type="text" placeholder="Autor" #autor>
-            <input type="number" placeholder="Precio" #precio>
-            <input type="text" placeholder="Foto" #foto>
-            <input type="number" placeholder="Codigo libro" #codigo>
+            <input type="text" placeholder="Titulo" name="titulo" ngModel required #tituloId="ngModel" [ngClass]="{'invalido': (tituloId.dirty || tituloId.touched) && tituloId.invalid}">
+            <div *ngIf="(tituloId.dirty || tituloId.touched) && tituloId.invalid" class="mensajeInvalido">
+                <div *ngIf="tituloId.errors.required">El titulo es obligatorio</div>
+            </div>
+
+            <input type="text" placeholder="Tapa blanda / dura" name="tipo" ngModel required #tipoId="ngModel" [ngClass]="{'invalido': (tipoId.dirty || tipoId.touched) && tipoId.invalid}">
+            <div *ngIf="(tipoId.dirty || tipoId.touched) && tipoId.invalid" class="mensajeInvalido">
+                <div *ngIf="tipoId.errors.required">El tipo es obligatorio</div>
+            </div>
+
+            <input type="text" placeholder="Autor" name="autor" ngModel required #autorId="ngModel" [ngClass]="{'invalido': (autorId.dirty || autorId.touched) && autorId.invalid}">
+            <div *ngIf="(autorId.dirty || autorId.touched) && autorId.invalid" class="mensajeInvalido">
+                <div *ngIf="autorId.errors.required">El autor es obligatorio</div>
+            </div>
+
+            <input type="number" placeholder="Precio" name="precio" ngModel required #precioId="ngModel" [ngClass]="{'invalido': (precioId.dirty || precioId.touched) && precioId.invalid}">
+            <div *ngIf="(precioId.dirty || precioId.touched) && precioId.invalid" class="mensajeInvalido">
+                <div *ngIf="precioId.errors.required">El precio es obligatorio</div>
+            </div>
+
+            <input type="text" placeholder="Foto" name="foto" ngModel required #fotoId="ngModel" [ngClass]="{'invalido': (fotoId.dirty || fotoId.touched) && fotoId.invalid}">
+            <div *ngIf="(fotoId.dirty || fotoId.touched) && fotoId.invalid" class="mensajeInvalido">
+                <div *ngIf="fotoId.errors.required">La foto es obligatoria</div>
+            </div>
+
+            <input type="number" placeholder="Codigo libro" name="codigo" ngModel required #codigoId="ngModel" [ngClass]="{'invalido': (codigoId.dirty || codigoId.touched) && codigoId.invalid}">
+            <div *ngIf="(codigoId.dirty || codigoId.touched) && codigoId.invalid" class="mensajeInvalido">
+                <div *ngIf="codigoId.errors.required">El codigo es obligatorio</div>
+            </div>
+
         </div>
-        <button class="btn1" type="button" (click)="editarLibro(titulo.value, tipo.value, autor.value, precio.value, foto.value, +codigo.value)">Añadir</button>
+        <button class="btn1" type="submit" [disabled]="nuevo.invalid">Editar</button>
     </form>
 </div>

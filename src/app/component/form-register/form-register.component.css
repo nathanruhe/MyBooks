@@ -8,6 +8,7 @@ form {
     padding: 50px 20px;
     text-align: center;
     width: 350px;
+    margin: 124.5px;
 }
 
     form h2 {
@@ -34,3 +35,19 @@ form {
         background-color: var(--bk-btn);
         color: var(--color-Enlaces);
     }
+
+    /* invalids */
+
+.invalido {
+    border: 1px solid red;
+}
+
+.mensajeInvalido div {
+    color: red;
+    font-size: 15px;
+    text-align: start;
+}
+
+.btn1:disabled {
+    opacity: 0.6;
+}
