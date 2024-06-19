@@ -9,7 +9,7 @@ import { Book } from 'src/app/models/book';
 export class CardComponent {
 
   @Input() bookPadre: Book;
-  @Output() eliminar = new EventEmitter<void>();
+  @Output() eliminar = new EventEmitter<number>();
   @Input() index: number;
 
   even: boolean;
@@ -21,6 +21,6 @@ export class CardComponent {
   }
 
   eliminarCard() {
-    this.eliminar.emit();
+    this.eliminar.emit(this.index);
   }
 }

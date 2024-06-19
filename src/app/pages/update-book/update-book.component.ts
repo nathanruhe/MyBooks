@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class UpdateBookComponent {
 
+  public myBooks: Book[] = [];
+
   constructor(private booksService: BooksService, private toastr: ToastrService) {}
 
   toastrSuccess() {
@@ -27,15 +29,35 @@ export class UpdateBookComponent {
     })
   }
 
+  // editarLibro(form: NgForm) {
+  //   const libro = new Book(form.value.codigo, undefined, form.value.titulo, form.value.tipo, form.value.autor, form.value.precio, form.value.foto);
+
+  //   if (this.booksService.getOne(libro.id_book)) {
+  //     this.booksService.edit(libro);
+  //     this.toastrSuccess();
+  //   } else {
+  //     this.toastrError();
+  //   }
+  //   form.reset();
+  // }
+
   editarLibro(form: NgForm) {
     const libro = new Book(form.value.codigo, undefined, form.value.titulo, form.value.tipo, form.value.autor, form.value.precio, form.value.foto);
 
-    if (this.booksService.getOne(libro.id_book)) {
-      this.booksService.edit(libro);
-      this.toastrSuccess();
-    } else {
-      this.toastrError();
-    }
-    form.reset();
-  }
-}
+    this.booksService.getAll().subscribe((books: Book[]) => {
+      let encuentra = books.find(book => book.id_book == libro.id_book);
+      if (!encuentra) {
+        this.toastrError();
+      } else {
+        this.booksService.edit(libro).subscribe((data: Book) => {
+          console.log(data);
+          this.toastrSuccess();
+        });
+      };
+      form.reset();
+    });
+  };
+
+
+
+};
