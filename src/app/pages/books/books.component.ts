@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
+import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 
 @Component({
@@ -27,10 +28,21 @@ export class BooksComponent implements OnInit {
   //   this.booksService.delete(index);
   // }
 
-  eliminarLibro(index: number) {
-    const libro = this.myBooks[index];
-    this.booksService.delete(libro.id_book).subscribe(() => {
-      this.myBooks.splice(index, 1);
+  // eliminarLibro(index: number) {
+  //   const libro = this.myBooks[index];
+  //   this.booksService.delete(libro.id_book).subscribe(() => {
+  //     this.myBooks.splice(index, 1);
+  //   });
+  // };
+
+  eliminarLibro(id_book: number) {
+    this.booksService.delete(id_book).subscribe((resp: Respuesta) => {
+      if (!resp.error) {
+        console.log(resp.mensaje);
+        this.myBooks = this.myBooks.filter(book => book.id_book != id_book);
+      } else {
+        console.log(resp.mensaje);
+      };
     });
   };
 
@@ -47,22 +59,21 @@ export class BooksComponent implements OnInit {
     // }
   // }
 
-  buscarLibro(index: number) {
-    if (!index) {
-        this.booksService.getAll().subscribe((data: Book[]) => {
-          this.myBooks = data;
-        });
-    } else if (index) {
-      this.booksService.getAll().subscribe((books: Book[]) => {
-        let encuentra = books.find(book => book.id_book == index);
-        if (encuentra) {
-        this.myBooks = [encuentra];
-      } else {
-        this.myBooks = [];
-      };
+  buscarLibro(id_book: number) {
+    if (!id_book) {
+      this.booksService.getAll().subscribe((data: Book[]) => {
+        this.myBooks = data;
       });
-    }; 
+    } else {
+      this.booksService.getOne(id_book).subscribe((resp: Respuesta) => {
+        if (!resp.error) {
+          this.myBooks = [resp.data];
+        } else {
+          console.log(resp.mensaje);
+          this.myBooks = [];
+        };
+      });
+    };
   };
-
 
 };

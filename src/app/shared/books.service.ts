@@ -68,6 +68,6 @@ export class BooksService {
   // }
 
   public delete(id_book: number) {
-    return this.http.request('delete', this.url, { body: { id_book } });
-  }
+    return this.http.delete(this.url, {body:{id_book}});
+  };
 }

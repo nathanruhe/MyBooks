@@ -8,6 +8,6 @@
 
 <section>
     <ng-container *ngFor="let book of myBooks; let i = index">
-        <app-card [bookPadre]="book" (eliminar)="eliminarLibro(i)" [index]="i"></app-card>
+        <app-card [bookPadre]="book" (eliminar)="eliminarLibro($event)" [index]="i"></app-card>
     </ng-container>
 </section>

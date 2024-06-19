@@ -21,6 +21,6 @@ export class CardComponent {
   }
 
   eliminarCard() {
-    this.eliminar.emit(this.index);
+    this.eliminar.emit(this.bookPadre.id_book);
   }
 }
