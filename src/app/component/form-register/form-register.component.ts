@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Respuesta } from 'src/app/models/respuesta';
+import { UserService } from 'src/app/shared/user.service';
 @Component({
   selector: 'app-form-register',
   templateUrl: './form-register.component.html',
@@ -11,7 +13,7 @@ export class FormRegisterComponent {
   public myForm: FormGroup;
 
 
-  constructor(private formBuilder: FormBuilder, private toastr: ToastrService) {
+  constructor(private formBuilder: FormBuilder, private toastr: ToastrService, private userService: UserService) {
 
     this.myForm = this.formBuilder.group({
       name: [, Validators.required],
@@ -29,6 +31,13 @@ export class FormRegisterComponent {
       closeButton: true,
     });
   }
+
+  toastrError() {
+    this.toastr.error("Ya existe un usuario con ese email", "Error", {
+      progressBar: true,
+      closeButton: true,
+    })
+  }
   
   private checkPasswords(control: AbstractControl) {
     let resultado = {mathPassword: true}
@@ -37,10 +46,27 @@ export class FormRegisterComponent {
     return resultado;
   }
     
+  // public register() {
+  //   const user = this.myForm.value;
+  //   console.log(user);
+  //   this.toastrSuccess()
+  //   this.myForm.reset();
+  // }
+
   public register() {
     const user = this.myForm.value;
-    console.log(user);
-    this.toastrSuccess()
+
+    this.userService.register(user).subscribe((resp: Respuesta) => {
+      if (!resp.error) {
+        console.log(resp);
+        this.toastrSuccess();
+      } else {
+        console.log(resp);
+        this.toastrError();
+      };
+    });
     this.myForm.reset();
-  }
+  };
+
+
 }

@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <p>MyBooks</p>
     <div>
         <a routerLink="home">HOME</a>
@@ -9,4 +9,22 @@
         <a routerLink="profile">PERFIL</a>
         <a routerLink="login">LOGIN</a>
     </div>
-</header>
+</header> -->
+
+<header>
+    <p>MyBooks</p>
+    <div>
+      <ng-container *ngIf="userService.logueado; else noLogueado">
+        <a routerLink="addBook">ADDBOOK</a>
+        <a routerLink="updateBook">UPDATEBOOK</a>
+        <a routerLink="books">BOOKS</a>
+        <a routerLink="profile">PERFIL</a>
+      </ng-container>
+      <ng-template #noLogueado>
+        <a routerLink="home">HOME</a>
+        <a routerLink="login">LOGIN</a>
+        <a routerLink="register">REGISTER</a>
+      </ng-template>
+    </div>
+  </header>
+  

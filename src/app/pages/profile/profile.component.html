@@ -1,8 +1,8 @@
 <section>
     <div class="perfil">
         <div>
-            <img class="imgPerfil" src="../../../assets/img/perfil.jpg" alt="">
-            <!-- <img class="imgPerfil" src="{{ myUser.photo }}" alt=""> -->
+            <!-- <img class="imgPerfil" src="../../../assets/img/perfil.jpg" alt=""> -->
+            <img class="imgPerfil" src="{{ myUser.photo }}" alt="">
         </div>
         <h2>{{ myUser.name }} {{ myUser.last_name }}</h2>
         <div class="perfilDatos">
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="modificar">
+    <!-- <div class="modificar">
         <h2>Editar datos</h2>
         <form action="">
             <input type="text" placeholder="Nombre" #nombre>
@@ -29,6 +29,17 @@
             <input type="email" placeholder="Correo" #correo>
             <input type="text" placeholder="Url" #url>
             <button type="button" (click)="enviar1(nombre.value, apellidos.value, correo.value, url.value)">Modificar</button>
+        </form>
+    </div> -->
+
+    <div class="modificar">
+        <h2>Editar datos</h2>
+        <form #form="ngForm" (ngSubmit)="enviar1(form)">
+            <input type="text" placeholder="Nombre" name="nombre" ngModel #nombre="ngModel">
+            <input type="text" placeholder="Apellidos" name="apellidos" ngModel #apellidos="ngModel">
+            <input type="email" placeholder="Correo" name="correo" ngModel #correo="ngModel">
+            <input type="text" placeholder="Url" name="url" ngModel #url="ngModel">
+            <button type="submit">Modificar</button>
         </form>
     </div>
 </section>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/shared/user.service'; 
 
 @Component({
   selector: 'app-books',
@@ -12,17 +14,32 @@ export class BooksComponent implements OnInit {
 
   public myBooks: Book[] = [];
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private toastr: ToastrService, private userService: UserService) {}
+
+  toastrSuccess() {
+    this.toastr.success("Libro eliminado correctamente", "", {
+      progressBar: true,
+      closeButton: true,
+    });
+  }
+
+  toastrError() {
+    this.toastr.error("No se ha podido eliminar el libro", "Error", {
+      progressBar: true,
+      closeButton: true,
+    })
+  }
 
   // ngOnInit(): void {
   //   this.myBooks = this.booksService.getAll();
   // }
 
   ngOnInit() {
-    this.booksService.getAll().subscribe((data: Book[]) => {
+    const idUser = this.userService.user.id_user;
+    this.booksService.getAll(idUser).subscribe((data: Book[]) => {
       this.myBooks = data;
-    })
-  }
+    });
+  };
 
   // eliminarLibro(index: number) {
   //   this.booksService.delete(index);
@@ -38,10 +55,11 @@ export class BooksComponent implements OnInit {
   eliminarLibro(id_book: number) {
     this.booksService.delete(id_book).subscribe((resp: Respuesta) => {
       if (!resp.error) {
-        console.log(resp.mensaje);
         this.myBooks = this.myBooks.filter(book => book.id_book != id_book);
+        console.log(resp);
+        this.toastrSuccess();
       } else {
-        console.log(resp.mensaje);
+        this.toastrError();
       };
     });
   };
@@ -59,17 +77,20 @@ export class BooksComponent implements OnInit {
     // }
   // }
 
+
   buscarLibro(id_book: number) {
+    const idUser = this.userService.user.id_user;
     if (!id_book) {
-      this.booksService.getAll().subscribe((data: Book[]) => {
+      this.booksService.getAll(idUser).subscribe((data: Book[]) => {
         this.myBooks = data;
       });
     } else {
-      this.booksService.getOne(id_book).subscribe((resp: Respuesta) => {
+      this.booksService.getOne(idUser, id_book).subscribe((resp: Respuesta) => {
         if (!resp.error) {
+          console.log(resp);
           this.myBooks = [resp.data];
         } else {
-          console.log(resp.mensaje);
+          console.log(resp);
           this.myBooks = [];
         };
       });

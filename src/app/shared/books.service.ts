@@ -25,18 +25,18 @@ export class BooksService {
   //   return this.myBooks;
   // }
 
-  public getAll() {
-    return this.http.get(this.url);
+  public getAll(idUser: number) {
+    return this.http.get(this.url + `?id_user=${idUser}`);
   };
 
   // public getOne(id_book: number): Book {
   //   return this.myBooks.find(libro => libro.id_book === id_book);
   // }
 
-  public getOne(id_book: number) {
-    return this.http.get(this.url + "/" + id_book);
+  public getOne(idUser: number, id_book: number) {
+    return this.http.get(`${this.url}/${idUser}/${id_book}`);
   };
-
+  
   // public add(book: Book): void {
   //   this.myBooks.push(book);
   //   console.log(this.myBooks);

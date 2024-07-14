@@ -47,9 +47,10 @@ export class UpdateBookComponent {
 
     this.booksService.edit(libro).subscribe((resp: Respuesta) => {
       if (!resp.error) {
+        console.log(resp);
         this.toastrSuccess();
-        console.log(resp.data);
       } else {
+        console.log(resp);
         this.toastrError();
       };
     });

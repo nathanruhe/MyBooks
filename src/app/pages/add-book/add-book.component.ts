@@ -4,6 +4,7 @@ import { Book } from 'src/app/models/book';
 import { Respuesta } from 'src/app/models/respuesta';
 import { BooksService } from 'src/app/shared/books.service';
 import { ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-add-book',
@@ -14,7 +15,7 @@ export class AddBookComponent {
 
   public myBooks: Book[] = [];
 
-  constructor(private booksService: BooksService, private toastr: ToastrService) {}
+  constructor(private booksService: BooksService, private toastr: ToastrService, private userService: UserService) {}
 
   toastrSuccess() {
     this.toastr.success("Libro agregado correctamente", "", {
@@ -43,13 +44,14 @@ export class AddBookComponent {
   // }
 
   nuevoLibro(form: NgForm) {
-    const libro = new Book(form.value.codigo, undefined, form.value.titulo, form.value.tipo, form.value.autor, form.value.precio, form.value.foto);
+    const libro = new Book(form.value.codigo, this.userService.user.id_user, form.value.titulo, form.value.tipo, form.value.autor, form.value.precio, form.value.foto);
 
     this.booksService.add(libro).subscribe((resp: Respuesta) => {
       if (!resp.error) {
+        console.log(resp);
         this.toastrSuccess();
-        console.log(resp.data);
       } else {
+        console.log(resp);
         this.toastrError();
       };
     });
